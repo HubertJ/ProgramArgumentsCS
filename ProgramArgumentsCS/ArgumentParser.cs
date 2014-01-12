@@ -15,11 +15,12 @@ namespace ProgramArgumentsCS
 
     public ArgumentParser(T options, string[] args)
     {
+      _options = options;
+      _args = args;
+      Prepare();
+
       try
       {
-        _options = options;
-        _args = args;
-        Prepare();
         Parse();
       }
       catch (Exception ex)
@@ -193,6 +194,33 @@ namespace ProgramArgumentsCS
     }
 
     private void FindAndSet(KeyValuePair<Argument, PropertyInfo> argument)
+    {
+      if (argument.Key.Type == ArgumentType.Parameter)
+      {
+        FindAndSetParameter(argument);
+      }
+      else if (argument.Key.Type == ArgumentType.Switch)
+      {
+        FindAndSetSwitch(argument);
+      }
+    }
+
+    private void FindAndSetSwitch(KeyValuePair<Argument, PropertyInfo> argument)
+    {
+      try
+      {
+        var property = argument.Value;
+        var commandString = string.Format("/{0}", argument.Key.Command);
+        var switchEnabled = _args.Contains(commandString);
+        property.SetValue(_options, switchEnabled);
+      }
+      catch (Exception ex)
+      {
+        AddError(Severity.Critical, argument.Key, ex.Message);
+      }
+    }
+
+    private void FindAndSetParameter(KeyValuePair<Argument, PropertyInfo> argument)
     {
       var commandString = string.Format("/{0}=", argument.Key.Command);
       var stringArgument = _args.FirstOrDefault(arg => arg.StartsWith(commandString));
