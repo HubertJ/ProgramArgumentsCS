@@ -1,5 +1,6 @@
 ﻿
-using ProgramArgumentsCS.Arguments;
+using ProgramArgumentsCS.Model;
+
 namespace ProgramArgumentsCS.Errors
 {
   /// <summary>
@@ -25,6 +26,9 @@ namespace ProgramArgumentsCS.Errors
       set;
     }
 
+    /// <summary>
+    /// The argument that resulted in this error if valid
+    /// </summary>
     public Argument Argument
     {
       get;

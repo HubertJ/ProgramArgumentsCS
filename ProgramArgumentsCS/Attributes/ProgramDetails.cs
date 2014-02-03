@@ -18,12 +18,11 @@ namespace ProgramArgumentsCS.Attributes
     /// <param name="description">The description of the program (what its for)</param>
     /// <param name="version">The version number</param>
     /// <param name="publisher">The publisher</param>
-    public ProgramDetails(string name, string description, string version, string publisher)
+    public ProgramDetails(string name)
     {
       Name = name;
-      Description = description;
-      Version = version;
-      Publisher = publisher;
+      Version = string.Empty;
+      Publisher = string.Empty;
     }
 
     #endregion
@@ -34,15 +33,6 @@ namespace ProgramArgumentsCS.Attributes
     /// The name of the program
     /// </summary>
     public string Name
-    {
-      get;
-      set;
-    }
-
-    /// <summary>
-    /// The description of the program
-    /// </summary>
-    public string Description
     {
       get;
       set;

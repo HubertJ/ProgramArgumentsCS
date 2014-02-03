@@ -1,5 +1,5 @@
 ﻿
-namespace ProgramArgumentsCS.Arguments
+namespace ProgramArgumentsCS.Model
 {
   /// <summary>
   /// Specifies the argument types available
@@ -16,13 +16,13 @@ namespace ProgramArgumentsCS.Arguments
     /// A switch is a conditional flag whose presense specifies true
     /// e.g. cmd>ExampleProgram.exe /verbose 
     /// </summary>
-    Switch,
-
+    Switch
+    
     /// <summary>
     /// A free argument is one that doesn't related to a specific parameter
     /// There can only be one free argument specified for each program
     /// e.g. cmd>ExampleProgram.exe test.txt
     /// </summary>
-    Free
+    //Free
   }
 }

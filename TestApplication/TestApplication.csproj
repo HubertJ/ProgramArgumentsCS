@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C023622B-8055-457E-B73D-52A9B4DB9C66}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{C6B49040-D03D-494B-8F8F-EA2B5E0FB336}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProgramArgumentsCS</RootNamespace>
-    <AssemblyName>ProgramArgumentsCS</AssemblyName>
+    <RootNamespace>TestApplication</RootNamespace>
+    <AssemblyName>TestApplication</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,34 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IArgumentLink.cs" />
-    <Compile Include="ArgumentLinks\MethodInvocationLink.cs" />
-    <Compile Include="ArgumentLinks\PropertySwitchLink.cs" />
-    <Compile Include="ArgumentLinks\PropertyValueLink.cs" />
-    <Compile Include="Errors\Commands\ConsolePrintCommand.cs" />
-    <Compile Include="Interfaces\IVerbExtractor.cs" />
-    <Compile Include="Model\Argument.cs" />
-    <Compile Include="Interfaces\IArgumentParserVisitor.cs" />
-    <Compile Include="Interfaces\IErrorCommand.cs" />
-    <Compile Include="Model\ArgumentMemberLink.cs" />
-    <Compile Include="Model\Program.cs" />
-    <Compile Include="Model\Verb.cs" />
-    <Compile Include="Parser\ArgumentParser.cs" />
-    <Compile Include="Model\ArgumentRequirements.cs" />
-    <Compile Include="Model\ArgumentType.cs" />
-    <Compile Include="Attributes\ArgumentDetails.cs" />
-    <Compile Include="Attributes\Help.cs" />
-    <Compile Include="Attributes\ProgramDetails.cs" />
-    <Compile Include="Attributes\VerbAttribute.cs" />
-    <Compile Include="Errors\Error.cs" />
-    <Compile Include="Errors\Severity.cs" />
-    <Compile Include="Parser\ArgumentExtractor.cs" />
-    <Compile Include="Interfaces\IArgumentExtractor.cs" />
-    <Compile Include="Interfaces\IArgumentValidator.cs" />
-    <Compile Include="Parser\VerbExtractor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgramArguments\Options.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ProgramArgumentsCS\ProgramArgumentsCS.csproj">
+      <Project>{c023622b-8055-457e-b73d-52a9b4db9c66}</Project>
+      <Name>ProgramArgumentsCS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

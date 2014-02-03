@@ -1,5 +1,5 @@
 ﻿
-namespace ProgramArgumentsCS.Arguments
+namespace ProgramArgumentsCS.Model
 {
   /// <summary>
   /// Different requirements for command line arguments
@@ -14,11 +14,11 @@ namespace ProgramArgumentsCS.Arguments
     /// <summary>
     /// Specifies an argument that is optional at all times
     /// </summary>
-    Optional,
+    Optional
 
     /// <summary>
     /// Specifies an argument that is conditional on the precense of other arguments
     /// </summary>
-    Conditional
+    //Conditional
   }
 }

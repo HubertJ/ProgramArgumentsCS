@@ -1,5 +1,5 @@
 ﻿using System;
-using ProgramArgumentsCS.Arguments;
+using ProgramArgumentsCS.Model;
 
 namespace ProgramArgumentsCS.Attributes
 {
@@ -8,6 +8,14 @@ namespace ProgramArgumentsCS.Attributes
   {
     #region Construction
 
+    /// <summary>
+    /// Constructor for the ArgumentDetails class specifiying all of the 
+    /// default settings
+    /// </summary>
+    /// <param name="name">The name of the arguments</param>
+    /// <param name="command">The commands line argument that must be used</param>
+    /// <param name="requirements">The requirements placed on this argument</param>
+    /// <param name="type">The type of command line argument it is</param>
     public ArgumentDetails(string name, string command, ArgumentRequirements requirements, ArgumentType type)
     {
       if (string.Equals(name, "help", StringComparison.InvariantCultureIgnoreCase))
